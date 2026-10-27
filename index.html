@@ -1,0 +1,124 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vanilla JavaScript CRUD App</title>
+
+  <link rel="stylesheet" href="style.css">
+
+  <!--
+    defer allows the browser to parse the HTML while downloading
+    this script. The script executes after HTML parsing finishes.
+
+    A regular script in the head can block parsing, while async
+    executes as soon as downloading finishes and does not guarantee
+    execution order between multiple async scripts.
+  -->
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <main class="container">
+    <header class="page-header">
+      <p class="eyebrow">VANILLA JAVASCRIPT PROJECT</p>
+      <h1>User Management</h1>
+      <p>Manage users using XMLHttpRequest and JSONPlaceholder.</p>
+    </header>
+
+    <section class="panel">
+      <h2 id="form-title">Add a User</h2>
+
+      <form id="user-form">
+        <div class="form-grid">
+          <div class="form-group">
+            <label for="name">Full Name</label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              placeholder="Enter full name"
+              required
+            >
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="Enter email address"
+              required
+            >
+          </div>
+
+          <div class="form-group full-width">
+            <label for="website">Website</label>
+            <input
+              type="text"
+              id="website"
+              name="website"
+              placeholder="e.g. example.com"
+              required
+            >
+          </div>
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" id="submit-button">
+            Add User
+          </button>
+
+          <button
+            type="button"
+            id="cancel-button"
+            class="secondary-button"
+            hidden
+          >
+            Cancel Edit
+          </button>
+        </div>
+      </form>
+    </section>
+
+    <section class="panel">
+      <div class="table-heading">
+        <div>
+          <h2>Users</h2>
+          <p class="muted">View and manage your user records.</p>
+        </div>
+
+        <span id="user-count" class="count-badge">0 users</span>
+      </div>
+
+      <p id="status-message" class="status-message" role="status"
+         aria-live="polite">
+        Loading users...
+      </p>
+
+      <div class="table-wrapper">
+        <table id="users-table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Website</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+
+          <tbody id="users-table-body">
+            <!-- JavaScript will insert user rows here. -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <footer>
+      Built with HTML, CSS, Vanilla JavaScript and XMLHttpRequest.
+    </footer>
+  </main>
+</body>
+</html>
